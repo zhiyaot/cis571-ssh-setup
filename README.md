@@ -11,6 +11,10 @@ Change first line to your pennkey.
 
 Save, and click on this file from File Explorer.
 
+This will open a terminal, prompting for Password: (Enter your pennkey password here)
+
+Then you do 2-step verification (similar to what you do when ssh into the server)
+
 You are all set for ssh
 
 ```cmd
