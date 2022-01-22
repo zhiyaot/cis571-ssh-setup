@@ -1,4 +1,5 @@
-set pennkey=zhiyaot <<<<<------ change this to your pennkey
+set pennkey=zhiyaot
+@REM        ^^^^^^^ change your pennkey here
 
 if not exist %USERPROFILE%\.ssh\id_rsa (
     ssh-keygen -t rsa -q -f %USERPROFILE%\.ssh\id_rsa -N ""
