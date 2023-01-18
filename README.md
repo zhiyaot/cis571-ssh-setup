@@ -1,6 +1,12 @@
 # cis571-ssh-shetup
 One liner for windows user to setup ssh key on biglab
 
+## Why this is useful
+
+VSCode is quite "dirty" in terms of 2-step verification during an SSH session.
+By setting up a SSH key pair and sign in through ssh keys, it allows you to connect to `eniac` without entering password everytime (terminal or VSCode).
+That's just a huge plus!
+
 ## How to do it
 
 Clone this repo to your computer. 
@@ -24,6 +30,6 @@ if not exist %USERPROFILE%\.ssh\id_rsa (
     ssh-keygen -t rsa -q -f %USERPROFILE%\.ssh\id_rsa -N ""
 ) else (
     type %USERPROFILE%\.ssh\id_rsa.pub | ssh %pennkey%@eniac.seas.upenn.edu "cat >> ~/.ssh/authorized_keys"
-    echo you already got setup, dont run this again
+    echo you already got setup, DONT run this again
 )
 ```
