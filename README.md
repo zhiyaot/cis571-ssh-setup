@@ -26,13 +26,38 @@ This also means that you only need to ___do it once___ for `biglab` and `eniac`!
 - Then you do 2-step verification (similar to what you do when ssh into the server)
 - You are all set for ssh
 
+## Cautions
+
+- This script will wipe out your existing `authorized_keys` file on the server, so if you have other keys in there, you might want to do it manually. (yea I know, I'm lazy)
+- Go install WSL2 and use `ssh-keygen` and `ssh-copy-id` instead. (That is the right way to do it)
+
 ```cmd
-set pennkey=zhiyaot <<<<<------ change this to your pennkey
+@REM *************** CIS 571 SSH Setup ****************
+@REM This script will setup your ssh keys so you can
+@REM ssh to eniac.seas.upenn.edu without a password
+@REM 
+@REM Please file all bugs by submitting a issue on
+@REM the github page.
+@REM 
+@REM Zhiyao Tang 
+@REM **************************************************
+
+set pennkey=zhiyaot
+@REM        ^^^^^^^ change your pennkey here
 
 if not exist %USERPROFILE%\.ssh\id_rsa (
     ssh-keygen -t rsa -q -f %USERPROFILE%\.ssh\id_rsa -N ""
-) else (
+    echo enter your pennkey password here
     type %USERPROFILE%\.ssh\id_rsa.pub | ssh %pennkey%@eniac.seas.upenn.edu "cat >> ~/.ssh/authorized_keys"
-    echo you already got setup, DONT run this again
+    echo we have generated a key for you in %USERPROFILE%\.ssh\id_rsa
+    echo you can now ssh to eniac.seas.upenn.edu without a password
+    echo you do not need to run this again
+    pause
+) else (
+    echo you already have a key in %USERPROFILE%\.ssh\id_rsa
+    echo enter your pennkey password here
+    type %USERPROFILE%\.ssh\id_rsa.pub | ssh %pennkey%@eniac.seas.upenn.edu "cat >> ~/.ssh/authorized_keys"
+    echo you already got setup, dont run this again
+    pause
 )
 ```
