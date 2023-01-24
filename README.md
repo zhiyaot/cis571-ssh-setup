@@ -1,4 +1,4 @@
-# cis571-ssh-shetup
+# cis571-ssh-setup
 One liner for windows user to setup ssh key on biglab
 
 ## Why this is useful
