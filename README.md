@@ -1,6 +1,7 @@
 # cis571-ssh-setup
 
-One liner for windows users to set up `ssh` key on `biglab` or `eniac` or any other server that you have access to.
+One liner for windows users to set up `ssh` key on `biglab` or `eniac` or any other server that you have access to. 
+This is built on the __traditional__ cmdlet of windows dating back at least to Win2000, you __do not__ need fancy stuff such as WSL or PowerShell to run this script!
 
 ## Why this is useful
 
@@ -26,10 +27,10 @@ This also means that you only need to ___do it once___ for `biglab` and `eniac`!
 - Then you do 2-step verification (similar to what you do when ssh into the server)
 - You are all set for ssh
 
-## Cautions
+## My advise... (Optional)
 
-- This script will wipe out your existing `authorized_keys` file on the server, so if you have other keys in there, you might want to do it manually. (yea I know, I'm lazy)
-- Go install WSL2 and use `ssh-keygen` and `ssh-copy-id` instead. (That is the right way to do it)
+<!--- - This script will wipe out your existing `authorized_keys` file on the server, so if you have other keys in there, you might want to do it manually. (yea I know, I'm lazy) --->
+- Go install WSL2 and use `ssh-keygen` and `ssh-copy-id` instead. (That is the right way to do it!)
 
 ```cmd
 @REM *************** CIS 571 SSH Setup ****************
